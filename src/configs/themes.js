@@ -1,14 +1,20 @@
 export default {
-  light: {
-    background: '#fff',
-    Button: {
-      background: '#000',
+  dark: {
+    primaryColor: '#000',
+    button: {
+      background: '#fff',
+    },
+    text: {
+      color: '#fff',
     },
   },
-  dark: {
-    background: '#000',
-    Button: {
-      background: '#fff',
+  light: {
+    primaryColor: '#fff',
+    button: {
+      background: 'blue',
+    },
+    text: {
+      color: '#000',
     },
   },
 };

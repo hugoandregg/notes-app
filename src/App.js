@@ -1,35 +1,45 @@
-import React from 'react';
-import {Text, SafeAreaView} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {SafeAreaView, FlatList} from 'react-native';
 
-import styled from 'styled-components';
 import ViewContainer from './components/ViewContainer';
 import ChangeThemeButton from './components/ChangeThemeButton';
-
-const BoxText = styled(Text)`
-  padding: 16px;
-  margin-top: 24px;
-`;
-const SimpleText = styled(Text)`
-  color: #919191;
-`;
-const Title = styled(Text)`
-  color: #111111;
-  flex: 1;
-  margin: 10px;
-`;
+import Note from './components/Note';
+import {getNotes} from './services/NoteService';
+import CustomActivityIndicator from './components/CustomActivityIndicator';
 
 const App = () => {
+  const [notes, setNotes] = useState([]);
+  const [page, setPage] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  const getListNotes = async () => {
+    setLoading(true);
+    const pagination = `?page=${page}&per_page=8`;
+    const list = await getNotes(pagination);
+    setNotes([...notes, ...list]);
+    setPage(page + 1);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getListNotes();
+  }, []);
+
   return (
     <ViewContainer>
       <SafeAreaView>
         <ChangeThemeButton />
-        <BoxText>
-          <Title> Teste title </Title>
-          <SimpleText>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </SimpleText>
-        </BoxText>
+        <FlatList
+          data={notes}
+          renderItem={({item}) => <Note item={item} />}
+          keyExtractor={item => item._id}
+          numColumns={2}
+          onEndReached={getListNotes}
+          onEndReachedThreshold={0.1}
+          ListFooterComponent={
+            loading && <CustomActivityIndicator size="small" />
+          }
+        />
       </SafeAreaView>
     </ViewContainer>
   );

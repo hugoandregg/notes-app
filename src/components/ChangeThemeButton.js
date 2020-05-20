@@ -13,7 +13,7 @@ export default () => {
 
   return (
     <Button
-      color={theme.Button.background}
+      color={theme.button.background}
       title={'Trocar Tema'}
       onPress={changeTheme}
     />

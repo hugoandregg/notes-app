@@ -6,7 +6,7 @@ import App from './App';
 export const ThemeProviderContext = createContext();
 
 const Providers = () => {
-  const [activeTheme, setActiveTheme] = useState('dark');
+  const [activeTheme, setActiveTheme] = useState('light');
 
   return (
     <ThemeProviderContext.Provider value={{setActiveTheme, activeTheme}}>
