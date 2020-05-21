@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {FlatList} from 'react-native';
 
-import ChangeThemeButton from '../components/ChangeThemeButton';
 import Note from '../components/Note';
 import {getNotes} from '../services/NoteService';
 import CustomActivityIndicator from '../components/CustomActivityIndicator';
+import ViewContainer from '../components/ViewContainer';
 
 export default ({navigation}) => {
   const [notes, setNotes] = useState([]);
@@ -25,8 +25,7 @@ export default ({navigation}) => {
   }, []);
 
   return (
-    <>
-      <ChangeThemeButton />
+    <ViewContainer>
       <FlatList
         data={notes}
         renderItem={({item}) => <Note item={item} />}
@@ -38,6 +37,6 @@ export default ({navigation}) => {
           loading && <CustomActivityIndicator size="small" />
         }
       />
-    </>
+    </ViewContainer>
   );
 };

@@ -3,5 +3,5 @@ import {View, Dimensions} from 'react-native';
 
 export default styled(View)`
   background-color: ${props => props.theme.primaryColor};
-  height: ${Dimensions.get('window').height};
+  height: ${Dimensions.get('window').height}px;
 `;

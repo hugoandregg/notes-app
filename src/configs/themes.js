@@ -7,6 +7,7 @@ export default {
     text: {
       color: '#fff',
     },
+    headerTitleColor: 'red',
   },
   light: {
     primaryColor: '#fff',
@@ -16,5 +17,6 @@ export default {
     text: {
       color: '#000',
     },
+    headerTitleColor: 'red',
   },
 };
