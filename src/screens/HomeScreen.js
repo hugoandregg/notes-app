@@ -6,7 +6,7 @@ import {getNotes} from '../services/NoteService';
 import CustomActivityIndicator from '../components/CustomActivityIndicator';
 import ViewContainer from '../components/ViewContainer';
 
-export default ({navigation}) => {
+export default () => {
   const [notes, setNotes] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -40,3 +40,12 @@ export default ({navigation}) => {
     </ViewContainer>
   );
 };
+
+/* <Footer>
+        <FooterTab>
+          <Button onPress={}>
+            <Icon type="FontAwesome" name="sticky-note" />
+            <Text>Create Note</Text>
+          </Button>
+        </FooterTab>
+      </Footer> */

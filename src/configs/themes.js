@@ -8,6 +8,7 @@ export default {
       color: '#fff',
     },
     headerTitleColor: 'red',
+    barStyle: 'light-content',
   },
   light: {
     primaryColor: '#fff',
@@ -18,5 +19,6 @@ export default {
       color: '#000',
     },
     headerTitleColor: 'red',
+    barStyle: 'dark-content',
   },
 };
