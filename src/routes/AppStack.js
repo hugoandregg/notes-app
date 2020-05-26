@@ -1,10 +1,9 @@
-import React, {useContext} from 'react';
-import {Button, Icon} from 'native-base';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import {ThemeContext} from 'styled-components';
+import IconButton from '../components/SettingsHeaderButton';
 
 const Stack = createStackNavigator();
 
@@ -24,14 +23,7 @@ export default () => {
           component={HomeScreen}
           options={({navigation}) => ({
             title: 'Notes',
-
-            headerRight: () => (
-              <Button
-                transparent
-                onPress={() => navigation.push('SettingsScreen')}>
-                <Icon name="cog" />
-              </Button>
-            ),
+            headerRight: () => <IconButton navigation={navigation} />,
           })}
         />
         <Stack.Screen
