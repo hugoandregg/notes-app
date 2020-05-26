@@ -6,7 +6,7 @@ import CustomActivityIndicator from '../components/CustomActivityIndicator';
 import ViewContainer from '../components/ViewContainer';
 import CreateNoteButton from '../components/CreateNoteButton';
 
-export default () => {
+export default ({navigation}) => {
   const [notes, setNotes] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ export default () => {
           loading && <CustomActivityIndicator size="small" />
         }
       />
-      <CreateNoteButton />
+      <CreateNoteButton navigation={navigation} />
     </ViewContainer>
   );
 };

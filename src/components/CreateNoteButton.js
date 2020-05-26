@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const BottomView = styled(View)`
   background-color: ${props => props.theme.primaryColor};
@@ -8,20 +9,24 @@ const BottomView = styled(View)`
   height: 60px;
   justify-content: center;
   align-items: flex-end;
-  padding-right: 10px;
+  padding-right: 12px;
   position: absolute;
   bottom: 0;
 `;
 
-const BottomText = styled(Text)`
-  color: #fff;
+const IconButton = styled(Icon)`
+  background-color: ${props => props.theme.primaryColor};
   font-size: 22px;
 `;
 
-export default () => {
+export default ({navigation}) => {
   return (
     <BottomView>
-      <BottomText>View</BottomText>
+      <IconButton
+        name="edit"
+        color="grey"
+        onPress={() => navigation.push('CreateNoteScreen')}
+      />
     </BottomView>
   );
 };

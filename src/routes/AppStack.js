@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import CreateNoteScreen from '../screens/CreateNoteScreen';
 import IconButton from '../components/SettingsHeaderButton';
 
 const Stack = createStackNavigator();
@@ -30,6 +31,11 @@ export default () => {
           name="SettingsScreen"
           component={SettingsScreen}
           options={{title: 'Settings'}}
+        />
+        <Stack.Screen
+          name="CreateNoteScreen"
+          component={CreateNoteScreen}
+          options={{title: 'Create Note'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
