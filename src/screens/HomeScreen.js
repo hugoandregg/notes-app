@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {FlatList} from 'react-native';
-
 import Note from '../components/Note';
 import {getNotes} from '../services/NoteService';
 import CustomActivityIndicator from '../components/CustomActivityIndicator';
 import ViewContainer from '../components/ViewContainer';
+import CreateNoteButton from '../components/CreateNoteButton';
 
 export default () => {
   const [notes, setNotes] = useState([]);
@@ -37,15 +37,7 @@ export default () => {
           loading && <CustomActivityIndicator size="small" />
         }
       />
+      <CreateNoteButton />
     </ViewContainer>
   );
 };
-
-/* <Footer>
-        <FooterTab>
-          <Button onPress={}>
-            <Icon type="FontAwesome" name="sticky-note" />
-            <Text>Create Note</Text>
-          </Button>
-        </FooterTab>
-      </Footer> */

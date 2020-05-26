@@ -9,14 +9,12 @@ import {ThemeContext} from 'styled-components';
 const Stack = createStackNavigator();
 
 export default () => {
-  const theme = useContext(ThemeContext);
-
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
-            backgroundColor: theme.primaryColor,
+            backgroundColor: ({theme}) => theme.primaryColor,
             borderBottomWidth: 0.5,
           },
           headerTintColor: 'grey',
